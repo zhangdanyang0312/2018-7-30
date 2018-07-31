@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				padding:0px;
+				margin:0px;
+			}
+			#top{
+				position:relative;
+				width: 500px;
+				height: 300px;
+				/*border:1px solid black;*/
+				/*background: red;*/
+				margin:30px;
+			}
+			#top>img{
+				width: 500px;
+				height: 300px;
+			}
+			#top>div{
+				position:absolute;
+				top:0;
+				left:0;
+				background:rgba(225,225,225,0.5);
+				width:90px;
+				height:100px;
+				display:none;
+				cursor:move;
+			}
+			#bottom{
+				width: 500px;
+				height:90px;
+				/*background: blue;*/
+				margin-top:5px;
+				margin-left:30px;
+			}
+			#bottom>div{
+				float:left;
+				width: 150px;
+				height: 90px;
+				/*background: yellow;*/
+				margin-right:25px;
+			}
+			#bottom>div:last-child{
+				margin-right:0;
+			}
+			#bottom>div>img{
+				width: 150px;
+				height: 90px;
+			}
+			#right{
+				float:left;
+				width: 360px;
+				height: 400px;
+				/*background: red;*/
+				margin:30px;
+				overflow:hidden;
+				display:none;
+				position:relative
+			}
+			#right img{width:2000px;height:1200px; position:absolute}
+			#left{
+				float:left;
+			}
+		</style>
+        
+        <script src="js.js"></script>
+	</head>
+	<body>
+		<div id="left">
+			<div id="top">
+				<img src="1.jpg"/>
+                <div></div>
+			</div>
+			<div id="bottom">
+				<div><img src="1.jpg" alt="" /></div>
+				<div><img src="2.jpg" alt="" /></div>
+				<div><img src="3.jpg" alt="" /></div>
+			</div>
+		</div>
+		<div id="right">
+			<img src="1.jpg" alt="" />
+		</div>
+	</body>
+</html>
+<!--<script>
+	var left=document.getElementById('left');
+	var right=document.getElementById('right');
+	var _top=document.getElementById('top');
+	var panDiv=_top.getElementsByTagName('div')[0];
+	var oImg=right.getElementsByTagName('img')[0];
+	_top.onmouseover=function(){
+		panDiv.style.display='block';
+		right.style.display='block';
+	}
+	_top.onmousemove=function(ev){
+		var ev=ev||event;
+		panDiv.style.left=ev.clientX-_top.offsetLeft-panDiv.offsetWidth/2+'px';
+		panDiv.style.top=ev.clientY-_top.offsetTop-panDiv.offsetHeight/2+'px';
+		//左
+		if (panDiv.offsetLeft<=0){
+			panDiv.style.left=0
+		}
+		//下
+		if (panDiv.offsetTop>=(_top.offsetHeight-panDiv.offsetHeight)){
+			panDiv.style.top=_top.offsetHeight-panDiv.offsetHeight+'px'
+		}
+		//右
+		if (panDiv.offsetLeft>=(_top.offsetWidth-panDiv.offsetWidth)){
+			panDiv.style.left=_top.offsetWidth-panDiv.offsetWidth+'px'
+		}
+		//上
+		if (panDiv.offsetTop<=0){
+			panDiv.style.top=0
+		}
+
+		var l=panDiv.offsetLeft/(_top.offsetWidth-panDiv.offsetWidth);
+		oImg.style.left=-(oImg.offsetWidth-right.offsetWidth)*l+'px';
+		var t=panDiv.offsetTop/(_top.offsetHeight-panDiv.offsetHeight);
+		oImg.style.top=-(oImg.offsetHeight-right.offsetHeight)*t+'px';
+	}
+	_top.onmouseout=function(ev){
+		var ev=ev||event;
+		panDiv.style.display='none';
+		right.style.display='none';
+		ev.cancelBubble=true;
+	}
+</script>-->
